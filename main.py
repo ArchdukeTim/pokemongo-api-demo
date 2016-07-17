@@ -51,7 +51,7 @@ COORDS_ALTITUDE = 0
 FLOAT_LAT = 0
 FLOAT_LONG = 0
 
-mymap = pygmaps.pygmaps(38.8855018,-77.1796793,15.08)
+mymap = None
 
 def f2i(float):
   return struct.unpack('<Q', struct.pack('<d', float))[0]
@@ -65,7 +65,7 @@ def h2f(hex):
 def set_location(location_name):
     geolocator = GoogleV3()
     loc = geolocator.geocode(location_name)
-
+    mymap = pygmaps.pygmaps(loc.latitude, loc.longitude, loc.altitude)
     print('[!] Your given location: {}'.format(loc.address.encode('utf-8')))
     print('[!] lat/long/alt: {} {} {}'.format(loc.latitude, loc.longitude, loc.altitude))
     set_location_coords(loc.latitude, loc.longitude, loc.altitude)
