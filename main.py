@@ -120,7 +120,7 @@ def api_req(api_endpoint, access_token, *mehs, **kw):
             print("\n\n")
 
         print("Sleeping for 2 seconds to get around rate-limit.")
-        time.sleep(1)
+        time.sleep(2)
         return p_ret
     except Exception, e:
         if DEBUG:

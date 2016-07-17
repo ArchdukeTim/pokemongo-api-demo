@@ -1,4 +1,5 @@
 import math
+import re
 ###########################################################
 ## Google map python wrapper V0.1
 ## 
@@ -127,9 +128,10 @@ class pygmaps:
 
 	def drawpoint(self,f,lat,lon,color):
 		f.write('\t\tvar latlng = new google.maps.LatLng(%f, %f);\n'%(lat,lon))
-		f.write('\t\tvar img = new google.maps.MarkerImage(\'%s\');\n' % (self.coloricon.replace('XXX', color.lower)))
+		print self.coloricon.replace('XXX',color.lower())
+		f.write('\t\tvar img = new google.maps.MarkerImage(\'%s\');\n' % (self.coloricon.replace('XXX',color.lower())))
 		f.write('\t\tvar marker = new google.maps.Marker({\n')
-		f.write('\t\ttitle: "no implimentation",\n')
+		f.write('\t\ttitle: "'+re.escape(str(color))+'",\n')
 		f.write('\t\ticon: img,\n')
 		f.write('\t\tposition: latlng\n')
 		f.write('\t\t});\n')
