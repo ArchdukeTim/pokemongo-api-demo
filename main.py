@@ -331,7 +331,7 @@ def main():
             color = (hex(255-poke.pokemon.PokemonId*2).split('x')[1])
             color2 = (hex(poke.pokemon.PokemonId*3).split('x')[1])
             color3 = (hex(poke.pokemon.PokemonId*4).split('x')[1])
-            mymap.addpoint(poke.Latitude, poke.Longitude, "#%s%s%s" %(color, color2, color3), pokemons[poke.pokemon.PokemonId - 1]['Name'])            
+            mymap.addpoint(poke.Latitude, poke.Longitude,pokemons[poke.pokemon.PokemonId - 1]['Name'])            
             print("(%s) %s is visible at (%s, %s) for %s seconds (%sm %s from you)" % (poke.pokemon.PokemonId, pokemons[poke.pokemon.PokemonId - 1]['Name'], poke.Latitude, poke.Longitude, poke.TimeTillHiddenMs / 1000, int(origin.get_distance(other).radians * 6366468.241830914), direction))
 
         print('')
